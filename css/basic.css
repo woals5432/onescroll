@@ -7,6 +7,7 @@ header {
   width: 100%;
   background: rgba(255, 255, 255, .5);
   transition: all 500ms ease-in;
+  z-index: 100;
 }
 
 .header_in {
@@ -16,6 +17,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 10px;
 }
 
 header h1 {}
@@ -36,41 +38,53 @@ header h1 span {
 header nav {}
 
 header nav ul:after {
-  display:block;
-  content:'';
-  clear:both;
+  display: block;
+  content: '';
+  clear: both;
 }
 
 header nav ul>li {
-  float:left;
+  float: left;
 }
 
 header nav ul>li>a {
   display: block;
-  padding:15px;
+  padding: 15px;
   font-size: 18px;
 }
-header nav ul>li>a:hover{
-  color:orangered;
+
+header nav ul>li>a:hover {
+  color: orangered;
 }
-header.on{
+
+header.on {
   background: #000;
-  color:white;
+  color: white;
 }
-header.on .header_in{
+
+header.on .header_in {
   height: 50px;
 }
-header.on i{
- font-size:1em;
+
+header.on i {
+  font-size: 1em;
 }
-header.on span{
-  font-size:1.5em;
-  
+
+header.on span {
+  font-size: 1.5em;
+
 }
-header.on nav ul>li>a{
+
+header.on nav ul>li>a {
   font-size: 14px;
-  padding:15px;
+  padding: 15px;
 }
+
+.trigger, .close {
+  display: none;
+}
+
+
 section {
   display: flex;
   justify-content: center;
@@ -95,7 +109,7 @@ section {
   border-top-color: transparent;
   border-right-color: transparent;
   font-size: 0;
-  color:transparent;
+  color: transparent;
   transition: 500ms;
 }
 
@@ -107,7 +121,7 @@ section {
 }
 
 
-.top span{
+.top span {
   transform: rotate(135deg);
 }
 
@@ -144,4 +158,96 @@ section h2 {
 #s6 {
   background: lightseagreen;
   height: 400px;
+}
+
+/* 990보다 작을 때 */
+@media (max-width:989px) {
+  .header_in {
+    width: 100%;
+    height: 80px;
+  }
+
+  header h1 i {
+    font-size: 1.5em;
+    margin-right: 10px;
+  }
+
+  header h1 span {
+    font-size: 1.6em;
+  }
+
+  header nav ul>li>a {
+    padding: 12px;
+    font-size: 16px;
+  }
+}
+
+/* 761보다 작을 때 - 모바일 상태*/
+@media (max-width:760px) {
+
+  header nav {
+    position:fixed;
+    top:0;
+    right:-100%;
+    bottom:0;
+    width:300px;
+    background: white;
+    color:black;
+    z-index:100;
+    box-shadow: 0 0 50px rgba(0, 0, 0, .5);
+    transition: 0.5s ease-in;
+  }
+  header nav.active{
+    right:0;
+  }
+  .trigger, .close {
+    display: block;
+  }
+
+  .trigger i {
+    font-size: 20px;
+  }
+
+  .close{
+    position:absolute;
+    left:20px;
+    top:20px;
+    background: transparent;
+  }
+  .close i {
+    font-size: 30px;
+  }
+
+  header.on {
+    background: #053aa4;
+  }
+
+  
+
+  header nav ul:after {
+    display: block;
+    content: '';
+    clear: both;
+  }
+  header nav ul{
+    padding:100px 0 0 30px;
+  }
+
+  header nav ul>li {
+    float: none;
+  }
+
+  header nav ul>li>a {
+    padding: 20px;
+    font-size: 20px;
+  }
+
+  header nav ul>li>a:hover {
+    color: orangered;
+    }
+
+  header.on nav ul>li>a {
+    font-size: 20px;
+    padding: 20px;
+  }
 }

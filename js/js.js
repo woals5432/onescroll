@@ -36,3 +36,17 @@ const top1 = document.querySelector('.top');
 top1.addEventListener('click',()=>{
   window.scroll({top:0,behavior:"smooth"})
 })
+
+// 모바일 상태에서 메뉴 슬라이드
+const triggerBtn = document.querySelector('.trigger');
+const moNav = document.querySelector('nav')
+const clsBtn = document.querySelector('.close')
+
+triggerBtn.addEventListener('click',function(e){
+  moNav.classList.add('active');
+  e.preventDefault();
+})
+
+clsBtn.addEventListener('click',function(){
+  moNav.classList.remove('active');
+})
